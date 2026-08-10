@@ -265,11 +265,11 @@ body {
 }
 
 .video-container {
-  max-width: 1200px; 
+  max-width: 1200px;
   aspect-ratio: 16 / 9;
   margin: 0 auto;
   padding: 0rem 0 2rem;
-  width: 80%;
+  width: 75%;
 }
 
 .video-container video {
@@ -301,9 +301,9 @@ body {
 .navbar {
   margin: auto auto 0;
   padding-bottom: 1.5rem;
-  width: 90%;
+  width: 85%;
   position: relative;
-  max-width: 1200px;
+  /* max-width: 1382px; */
 }
 
 .main__content {
@@ -390,22 +390,28 @@ body {
 
 .nav-btn-active {
   position: absolute;
-  width: calc(98% / 5);
+  width: 20%;
   top: 0;
   cursor: pointer;
   opacity: 0;
 }
 
-.first-btn {
+.first-btn  { left: 0%; }
+.second-btn { left: 20%; }
+.third-btn  { left: 40%; }
+.fourth-btn { left: 60%; }
+.fifth-btn  { left: 80%; }
+
+/* .first-btn {
   left: 0%;
-}
+} */
 
 .nav-btn-active:hover,
 .nav-btn-active.active {
   opacity: 1;
 }
 
-.second-btn {
+/* .second-btn {
   left: 20.1%;
 }
 
@@ -419,7 +425,7 @@ body {
 
 .fifth-btn {
   left: 80.5%;
-}
+} */
 
 .patient-info {
   width: calc(100% / 3);
