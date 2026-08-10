@@ -265,7 +265,7 @@ body {
 }
 
 .video-container {
-  max-width: 1200px;
+  max-width: 100dvh;
   aspect-ratio: 16 / 9;
   margin: 0 auto;
   padding: 0rem 0 2rem;
