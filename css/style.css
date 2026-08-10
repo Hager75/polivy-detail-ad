@@ -406,7 +406,12 @@ body {
   left: 0%;
 } */
 
-.nav-btn-active:hover,
+@media (hover: hover) and (pointer: fine) {
+  .nav-btn-active:hover {
+    opacity: 1;
+  }
+}
+
 .nav-btn-active.active {
   opacity: 1;
 }
@@ -803,6 +808,8 @@ body {
 .main__content>div {
   display: none;
 }
+
+
 
 .d-flex {
   display: flex;
