@@ -567,6 +567,9 @@ body {
     font-size: 11px !important;
   }
 
+  .main__logo-container, .nav__logo-container {
+    padding: 1rem 2rem;
+  }
 }
 
 @media (max-width: 900px) and (orientation: landscape) {
