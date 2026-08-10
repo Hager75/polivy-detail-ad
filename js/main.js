@@ -10,6 +10,18 @@ const setMainContentVisibility = (page, display) => {
   });
 };
 
+const openModal = () => {
+  MODAL.showModal();
+  MODAL.focus();
+  pauseAllVideos();
+};
+
+function pauseAllVideos() {
+  document.querySelectorAll("video").forEach((video) => {
+    video.pause();
+  });
+}
+
 function showSlide(index) {
   PATIENT_INFO_MODAL[currentPatientProfile][currentSlide].classList.remove(
     "active"
@@ -50,6 +62,7 @@ HEMATOLOGY_BTNS.forEach((btn) => {
     currentPage = 4;
     HEMATOLOGY_BTNS_ACTIVE?.classList.add("active");
     setMainContentVisibility(currentPage, "flex");
+    pauseAllVideos();
   });
 });
 
@@ -63,6 +76,7 @@ MECHANISM_BTNS.forEach((btn) => {
     currentPage = 5;
     MECHANISM_ACTIVE?.classList.add("active");
     setMainContentVisibility(currentPage, "flex");
+    pauseAllVideos();
   });
 });
 
@@ -76,6 +90,7 @@ PATIENT_BTNS.forEach((btn) => {
     currentPage = 6;
     PATIENT_ACTIVE?.classList.add("active");
     setMainContentVisibility(currentPage, "flex");
+    pauseAllVideos();
   });
 });
 
@@ -89,6 +104,7 @@ PFS_BTNS.forEach((btn) => {
     currentPage = 7;
     PFS_ACTIVE?.classList.add("active");
     setMainContentVisibility(currentPage, "flex");
+    pauseAllVideos();
   });
 });
 
@@ -102,6 +118,7 @@ YEARS_BTNS.forEach((btn) => {
     currentPage = 8;
     YEARS_ACTIVE?.classList.add("active");
     setMainContentVisibility(currentPage, "flex");
+    pauseAllVideos();
   });
 });
 
@@ -140,6 +157,7 @@ NEXT_BTNS.forEach((btn) => {
       ACTIVE_BTNS[currentPage].classList.add("active");
       setMainContentVisibility(currentPage, "flex");
     }
+    pauseAllVideos();
   });
 });
 
@@ -161,6 +179,7 @@ PREV_BTNS.forEach((btn) => {
       setMainContentVisibility(currentPage, "flex");
       ACTIVE_BTNS[currentPage].classList.add("active");
     }
+    pauseAllVideos();
   });
 });
 
@@ -182,15 +201,12 @@ FIRST_PATIENT.addEventListener("click", function (e) {
   PATIENT_INFO_MODAL[currentPatientProfile][currentSlide].classList.add(
     "active"
   );
-  console.log(PATIENT_INFO_MODAL[currentPatientProfile][currentSlide]);
-  MODAL.showModal();
-  MODAL.focus();
+  openModal();
 });
 
 SECOND_PATIENT.addEventListener("click", function (e) {
   currentPatientProfile = 2;
-  MODAL.showModal();
-  MODAL.focus();
+  openModal();
   PATIENT_INFO_MODAL[currentPatientProfile][currentSlide].classList.add(
     "active"
   );
@@ -198,8 +214,7 @@ SECOND_PATIENT.addEventListener("click", function (e) {
 
 THIRD_PATIENT.addEventListener("click", function (e) {
   currentPatientProfile = 3;
-  MODAL.showModal();
-  MODAL.focus();
+  openModal();
   PATIENT_INFO_MODAL[currentPatientProfile][currentSlide].classList.add(
     "active"
   );
@@ -240,4 +255,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Preload failed", e);
     loader.classList.add("loaded"); // fail-safe
   }
+});
+
+
+const VIDEOS = document.querySelectorAll("video");
+
+VIDEOS.forEach((video) => {
+  video.addEventListener("play", () => {
+    VIDEOS.forEach((otherVideo) => {
+      if (otherVideo !== video) {
+        otherVideo.pause();
+      }
+    });
+  });
 });
